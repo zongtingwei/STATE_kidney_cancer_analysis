@@ -43,4 +43,61 @@ uv run state tx preprocess_infer \
   --pert-col "target_gene" \
   --seed 42
 ```
+#### PD1+CTLA4 939 to 18080genes
+```bash
+python align_to_model_genes.py \
+  --in-h5ad /public2/YouYuning/zongtingwei/datasets/cifmv2_datasets/kidneyccrcc_cosmx_soupir/kidney_design_pd1ctla4.h5ad \
+  --out-h5ad /public2/YouYuning/zongtingwei/datasets/cifmv2_datasets/kidneyccrcc_cosmx_soupir/kidney_design_pd1ctla4_18k.h5ad \
+  --gene-list /data5/zongtingwei/vcc/state/pd1ctla4_checkpoint/gene_names.csv
+```
+#### PD1+VEGFR 939 to 18080genes
+```bash
+python align_to_model_genes.py \
+  --in-h5ad /public2/YouYuning/zongtingwei/datasets/cifmv2_datasets/kidneyccrcc_cosmx_soupir/kidney_design_pd1vegfr.h5ad \
+  --out-h5ad /public2/YouYuning/zongtingwei/datasets/cifmv2_datasets/kidneyccrcc_cosmx_soupir/kidney_design_pd1vegfr_18k.h5ad \
+  --gene-list /data5/zongtingwei/vcc/state/pd1ctla4_checkpoint/gene_names.csv
+```
+
+#### Preprocess
+```bash
+uv run state tx preprocess_infer \
+  --adata /public2/YouYuning/zongtingwei/datasets/cifmv2_datasets/kidneyccrcc_cosmx_soupir/kidney_design_pd1ctla4_18k.h5ad \
+  --output /public2/YouYuning/zongtingwei/datasets/cifmv2_datasets/kidneyccrcc_cosmx_soupir/val_template_pd1ctla4_18k.h5ad \
+  --control-condition "non-targeting" \
+  --pert-col "target_gene" \
+  --seed 42
+```
+
+```bash
+uv run state tx preprocess_infer \
+  --adata /public2/YouYuning/zongtingwei/datasets/cifmv2_datasets/kidneyccrcc_cosmx_soupir/kidney_design_pd1vegfr_18k.h5ad \
+  --output /public2/YouYuning/zongtingwei/datasets/cifmv2_datasets/kidneyccrcc_cosmx_soupir/val_template_pd1vegfr_18k.h5ad \
+  --control-condition "non-targeting" \
+  --pert-col "target_gene" \
+  --seed 42
+```
+
+#### Inference
+```bash
+uv run state tx infer \
+  --output "/data5/zongtingwei/vcc/state/pd1ctla4/pred.h5ad" \
+  --model-dir "/data5/zongtingwei/vcc/state/pd1ctla4_checkpoint/checkpoints" \
+  --checkpoint "/data5/zongtingwei/vcc/state/pd1ctla4_checkpoint/checkpoints/best.ckpt" \
+  --adata "/public2/YouYuning/zongtingwei/datasets/cifmv2_datasets/kidneyccrcc_cosmx_soupir/val_template_pd1ctla4_18k.h5ad" \
+  --pert-col "target_gene"
+```
+
+```bash
+uv run state tx infer \
+  --output "/data5/zongtingwei/vcc/state/pd1vegfr/pred_vegfr.h5ad" \
+  --model-dir "/data5/zongtingwei/vcc/state/pd1ctla4_checkpoint/checkpoints" \
+  --checkpoint "/data5/zongtingwei/vcc/state/pd1ctla4_checkpoint/checkpoints/best.ckpt" \
+  --adata "/public2/YouYuning/zongtingwei/datasets/cifmv2_datasets/kidneyccrcc_cosmx_soupir/val_template_pd1vegfr_18k.h5ad" \
+  --pert-col "target_gene"
+```
+
+#### draw heatmaps
+
+
+
 
