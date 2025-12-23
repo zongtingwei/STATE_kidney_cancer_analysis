@@ -130,7 +130,28 @@ uv run state tx infer \
 
 
 
-#### draw heatmaps
+#### draw PD1+CTLA4 heatmaps
+```bash
+python state_delta_vs_delta_corr.py \
+  --pred-pert /data5/zongtingwei/vcc/state/pd1ctla4/pred.h5ad \
+  --pred-unpert /data5/zongtingwei/vcc/state/pd1ctla4/pred_unpert.h5ad \
+  --base-h5ad /public2/YouYuning/zongtingwei/datasets/cifmv2_datasets/kidneyccrcc_cosmx_soupir/kidney_cosmx_state_base.h5ad \
+  --tag PD1_CTLA4_Delta \
+  --real-samples "RCC4_1,RCC4_2" \
+  --outdir ./state_results_delta_ctla4
+```
+
+#### draw PD1+VEGFR heatmaps
+```bash
+python state_delta_vs_delta_corr.py \
+  --pred-pert /data5/zongtingwei/vcc/state/pd1vegfr/pred_vegfr.h5ad \
+  --pred-unpert /data5/zongtingwei/vcc/state/pd1vegfr/pred_unpert.h5ad \
+  --base-h5ad /public2/YouYuning/zongtingwei/datasets/cifmv2_datasets/kidneyccrcc_cosmx_soupir/kidney_cosmx_state_base.h5ad \
+  --tag PD1_VEGFR_Delta \
+  --real-samples "RCC4_7,RCC4_8,RCC4_17,RCC4_18,RCC5_1,RCC5_2" \
+  --outdir ./state_results_delta_vegfr
+```
+
 
 
 
