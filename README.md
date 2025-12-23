@@ -152,7 +152,24 @@ python state_delta_vs_delta_corr.py \
   --outdir ./state_results_delta_vegfr
 ```
 
+#### draw PD1+CTLA4 Sarcomoid heatmaps
+```bash
+python state_sarcomoid_analysis.py \
+  --pred-pert /data5/zongtingwei/vcc/state/pd1ctla4/pred.h5ad \
+  --pred-unpert /data5/zongtingwei/vcc/state/pd1ctla4/pred_unpert.h5ad \
+  --base-h5ad /public2/YouYuning/zongtingwei/datasets/cifmv2_datasets/kidneyccrcc_cosmx_soupir/kidney_cosmx_state_base.h5ad \
+  --task ctla4 \
+  --outdir ./sarcomoid_heatmaps_ctla4
+```
 
 
-
+#### draw PD1+VEGFR Sarcomoid heatmaps
+```bash
+python state_sarcomoid_analysis.py \
+  --pred-pert /data5/zongtingwei/vcc/state/pd1vegfr/pred_vegfr.h5ad \
+  --pred-unpert /data5/zongtingwei/vcc/state/pd1vegfr/pred_unpert.h5ad \
+  --base-h5ad /public2/YouYuning/zongtingwei/datasets/cifmv2_datasets/kidneyccrcc_cosmx_soupir/kidney_cosmx_state_base.h5ad \
+  --task vegfr \
+  --outdir ./sarcomoid_heatmaps_vegfr
+```
 
