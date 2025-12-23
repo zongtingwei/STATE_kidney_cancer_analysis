@@ -96,6 +96,40 @@ uv run state tx infer \
   --pert-col "target_gene"
 ```
 
+
+#### make PD1+CTLA4 pred_unperturbed_datasets
+```bash
+python make_unpert_template.py \
+  --input /public2/YouYuning/zongtingwei/datasets/cifmv2_datasets/kidneyccrcc_cosmx_soupir/val_template_pd1ctla4_18k.h5ad \
+  --output /public2/YouYuning/zongtingwei/datasets/cifmv2_datasets/kidneyccrcc_cosmx_soupir/val_template_CONTROL_ctla4_18k.h5ad
+```
+
+```bash
+uv run state tx infer \
+  --output "/data5/zongtingwei/vcc/state/pd1ctla4/pred_unpert.h5ad" \
+  --model-dir "/data5/zongtingwei/vcc/state/pd1ctla4_checkpoint/checkpoints" \
+  --checkpoint "/data5/zongtingwei/vcc/state/pd1ctla4_checkpoint/checkpoints/best.ckpt" \
+  --adata "/public2/YouYuning/zongtingwei/datasets/cifmv2_datasets/kidneyccrcc_cosmx_soupir/val_template_CONTROL_ctla4_18k.h5ad" \
+  --pert-col "target_gene"
+```
+#### make PD1+VEGFR pred_unperturbed_datasets
+```bash
+python make_unpert_template.py \
+  --input /public2/YouYuning/zongtingwei/datasets/cifmv2_datasets/kidneyccrcc_cosmx_soupir/val_template_pd1vegfr_18k.h5ad \
+  --output /public2/YouYuning/zongtingwei/datasets/cifmv2_datasets/kidneyccrcc_cosmx_soupir/val_template_CONTROL_vegfr_18k.h5ad
+```
+
+```bash
+uv run state tx infer \
+  --output "/data5/zongtingwei/vcc/state/pd1vegfr/pred_unpert.h5ad" \
+  --model-dir "/data5/zongtingwei/vcc/state/pd1ctla4_checkpoint/checkpoints" \
+  --checkpoint "/data5/zongtingwei/vcc/state/pd1ctla4_checkpoint/checkpoints/best.ckpt" \
+  --adata "/public2/YouYuning/zongtingwei/datasets/cifmv2_datasets/kidneyccrcc_cosmx_soupir/val_template_CONTROL_vegfr_18k.h5ad" \
+  --pert-col "target_gene"
+```
+
+
+
 #### draw heatmaps
 
 
