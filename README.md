@@ -99,6 +99,10 @@ uv run state tx infer \
 
 #### make PD1+CTLA4 pred_unperturbed_datasets
 ```bash
+cd /public2/YouYuning/zongtingwei/cifmv2
+conda activate cifmv2
+```
+```bash
 python make_unpert_template.py \
   --input /public2/YouYuning/zongtingwei/datasets/cifmv2_datasets/kidneyccrcc_cosmx_soupir/val_template_pd1ctla4_18k.h5ad \
   --output /public2/YouYuning/zongtingwei/datasets/cifmv2_datasets/kidneyccrcc_cosmx_soupir/val_template_CONTROL_ctla4_18k.h5ad
