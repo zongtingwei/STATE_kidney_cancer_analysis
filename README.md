@@ -1,7 +1,7 @@
 # STATE_kidney_cancer_analysis
 STATE_kidney_cancer_analysis
 ## 📖 Overview
-Nichecompass_Analysis
+STATE_kidney_cancer_analysis
 
 ## 🚀 How to run
 ```bash
