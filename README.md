@@ -177,3 +177,51 @@ python state_sarcomoid_analysis.py \
   --outdir ./sarcomoid_heatmaps_vegfr
 ```
 
+#### draw PD1 + CTLA4 non-sarcomoid split heatmaps
+```bash
+python state_delta_vs_delta_corr_split_debug.py \
+  --pred-pert /data5/zongtingwei/vcc/state/pd1ctla4/pred.h5ad \
+  --pred-unpert /data5/zongtingwei/vcc/state/pd1ctla4/pred_unpert.h5ad \
+  --base-h5ad /public2/YouYuning/zongtingwei/datasets/cifmv2_datasets/kidneyccrcc_cosmx_soupir/kidney_cosmx_state_base.h5ad \
+  --tag NonSarc_PD1_CTLA4 \
+  --ctrl-samples "RCC3_1,RCC3_2,RCC3_3,RCC3_4,RCC3_5,RCC3_6,RCC3_9,RCC3_10,RCC5_4,RCC5_5,RCC5_6,RCC5_15,RCC5_16,RCC5_18" \
+  --real-samples "RCC4_1,RCC4_2" \
+  --outdir ./state_results_split_nonsarc_ctla4
+```
+
+#### draw PD1 + VEGFR non-sarcomoid split heatmaps
+```bash
+python state_delta_vs_delta_corr_split_debug.py \
+  --pred-pert /data5/zongtingwei/vcc/state/pd1ctla4/pred.h5ad \
+  --pred-unpert /data5/zongtingwei/vcc/state/pd1ctla4/pred_unpert.h5ad \
+  --base-h5ad /public2/YouYuning/zongtingwei/datasets/cifmv2_datasets/kidneyccrcc_cosmx_soupir/kidney_cosmx_state_base.h5ad \
+  --tag NonSarc_PD1_CTLA4 \
+  --ctrl-samples "RCC3_1,RCC3_2,RCC3_3,RCC3_4,RCC3_5,RCC3_6,RCC3_9,RCC3_10,RCC5_4,RCC5_5,RCC5_6,RCC5_15,RCC5_16,RCC5_18" \
+  --real-samples "RCC4_1,RCC4_2" \
+  --outdir ./state_results_split_nonsarc_ctla4
+```
+
+#### draw PD1 + CTLA4 sarcomoid split heatmaps
+```bash
+python state_delta_vs_delta_corr_split_debug.py \
+  --pred-pert /data5/zongtingwei/vcc/state/pd1ctla4/pred.h5ad \
+  --pred-unpert /data5/zongtingwei/vcc/state/pd1ctla4/pred_unpert.h5ad \
+  --base-h5ad /public2/YouYuning/zongtingwei/datasets/cifmv2_datasets/kidneyccrcc_cosmx_soupir/kidney_cosmx_state_base.h5ad \
+  --tag Sarc_PD1_CTLA4 \
+  --ctrl-samples "RCC3_7,RCC3_8,RCC3_11,RCC3_12,RCC3_13,RCC3_14,RCC3_15,RCC3_16,RCC5_7,RCC5_8,RCC5_9,RCC5_10,RCC5_11,RCC5_12" \
+  --real-samples "RCC4_3,RCC4_4" \
+  --outdir ./state_results_split_sarc_ctla4
+```
+
+#### draw PD1 + VEGFR sarcomoid split heatmaps
+```bash
+python state_delta_vs_delta_corr_split_debug.py \
+  --pred-pert /data5/zongtingwei/vcc/state/pd1vegfr/pred_vegfr.h5ad \
+  --pred-unpert /data5/zongtingwei/vcc/state/pd1vegfr/pred_unpert.h5ad \
+  --base-h5ad /public2/YouYuning/zongtingwei/datasets/cifmv2_datasets/kidneyccrcc_cosmx_soupir/kidney_cosmx_state_base.h5ad \
+  --tag Sarc_PD1_VEGFR \
+  --ctrl-samples "RCC3_7,RCC3_8,RCC3_11,RCC3_12,RCC3_13,RCC3_14,RCC3_15,RCC3_16,RCC5_7,RCC5_8,RCC5_9,RCC5_10,RCC5_11,RCC5_12" \
+  --real-samples "RCC4_5,RCC4_6" \
+  --outdir ./state_results_split_sarc_vegfr
+```
+
